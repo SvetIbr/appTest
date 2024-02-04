@@ -21,6 +21,9 @@ public class WalletServiceImpl implements WalletService {
 
     @Transactional(readOnly = true)
     public WalletDto getById(String walletId) {
+        if (walletId == null) {
+            throw new NotFoundException(ID_IS_EMPTY);
+        }
         Wallet wallet = walletRepository.findById(walletId).orElseThrow
                 (() -> new NotFoundException(String.format(WALLET_NOT_FOUND, walletId)));
         return walletMapper.toWalletDto(wallet);

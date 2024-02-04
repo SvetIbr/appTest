@@ -26,6 +26,9 @@ public class WalletOperationServiceImpl implements WalletOperationService {
 
     @Transactional
     public WalletOperationDto create(WalletOperationDto walletOperationDto) {
+        if (walletOperationDto == null) {
+            throw new BadRequestException(IS_EMPTY);
+        }
         Wallet wallet = walletRepository.findById(walletOperationDto.getWalletId()).orElseThrow
                 (() -> new NotFoundException(String.format(WALLET_NOT_FOUND, walletOperationDto.getWalletId())));
         WalletOperation walletOperation = walletOperationMapper.toWalletOperation(walletOperationDto);

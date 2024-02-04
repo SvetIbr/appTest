@@ -27,3 +27,5 @@ services:
         - POSTGRES_PASSWORD=iamroot
         - DB_HOST=db
         - DB_PORT=5432
+    volumes:
+        - /var/lib/postgresql/data/

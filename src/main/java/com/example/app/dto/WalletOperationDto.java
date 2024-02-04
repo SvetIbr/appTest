@@ -2,6 +2,7 @@ package com.example.app.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -16,6 +17,7 @@ public class WalletOperationDto {
     private Long id;
 
     @NotNull
+    @Size(min = 36, max = 36)
     private String walletId;
 
     @NotNull

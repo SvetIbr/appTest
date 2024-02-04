@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: app-db
+    ports:
+      - "6543:5432"
+    environment:
+      - POSTGRES_DB=wallets
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=iamroot
+    volumes:
+      - /var/lib/postgresql/data/
+
+  web:
+    build: .
+    image: app-main-service
+    container_name: app-main
+    ports:
+      - "9090:9090"
+    depends_on:
+      - db
+    environment:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/wallets
+        - DB_NAME=wallets
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=iamroot
+        - DB_HOST=db
+        - DB_PORT=5432

@@ -11,7 +11,7 @@ import lombok.*;
  * @version 1.0
  */
 @Entity
-@Table(name = "wallets")
+@Table(name = "wallet")
 @Getter
 @Setter
 @ToString

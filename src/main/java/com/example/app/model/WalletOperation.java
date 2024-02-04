@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
-@Table(name = "operations")
+@Table(name = "operation")
 @Getter
 @Setter
 @ToString

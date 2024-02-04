@@ -1,0 +1,5 @@
+<addForeignKeyConstraint baseColumnNames="wallet_id"
+                         baseTableName="operation"
+                         constraintName="wallet_operation_fk"
+                         referencedColumnNames="id"
+                         referencedTableName="wallet"/>

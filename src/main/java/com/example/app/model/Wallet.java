@@ -19,9 +19,15 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 public class Wallet {
+    /**
+     * Поле идентификатор
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
+    /**
+     * Поле баланс
+     */
     private long balance;
 }

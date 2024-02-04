@@ -3,15 +3,28 @@ package com.example.app.mapper;
 import com.example.app.dto.WalletOperationDto;
 import com.example.app.model.WalletOperation;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
-import static com.example.app.util.Constants.DATE_TIME_FORMAT;
-
+/**
+ * Mapper-класс для преобразования объектов сервиса операций по кошелькам
+ *
+ * @author Светлана Ибраева
+ * @version 1.0
+ */
 @Mapper(componentModel = "spring")
 public interface WalletOperationMapper {
-    //@Mapping(source = "created", target = "created", dateFormat = DATE_TIME_FORMAT)
+    /**
+     * Метод преобразования объекта WalletOperationDto в WalletOperation
+     *
+     * @param walletOperationDto {@link WalletOperationDto}
+     * @return {@link WalletOperation}
+     */
     WalletOperation toWalletOperation(WalletOperationDto walletOperationDto);
 
-    //@Mapping(source = "created", target = "created", dateFormat = DATE_TIME_FORMAT)
+    /**
+     * Метод преобразования объекта WalletOperation в WalletOperationDto
+     *
+     * @param save {@link WalletOperation}
+     * @return {@link WalletOperationDto}
+     */
     WalletOperationDto toWalletOperationDto(WalletOperation save);
 }

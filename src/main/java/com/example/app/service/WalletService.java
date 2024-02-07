@@ -1,6 +1,7 @@
 package com.example.app.service;
 
 import com.example.app.dto.WalletDto;
+import com.example.app.model.Wallet;
 
 /**
  * Интерфейс сервиса кошельков
@@ -15,5 +16,5 @@ public interface WalletService {
      * @param walletId - идентификатор кошелька
      * @return {@link WalletDto}
      */
-    WalletDto getById(String walletId);
+    Wallet getById(String walletId);
 }

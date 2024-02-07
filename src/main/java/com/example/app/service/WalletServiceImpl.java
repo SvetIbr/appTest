@@ -1,8 +1,6 @@
 package com.example.app.service;
 
-import com.example.app.dto.WalletDto;
 import com.example.app.error.exception.NotFoundException;
-import com.example.app.mapper.WalletMapper;
 import com.example.app.model.Wallet;
 import com.example.app.storage.WalletRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,15 +15,13 @@ import static com.example.app.util.Constants.*;
 @RequiredArgsConstructor
 public class WalletServiceImpl implements WalletService {
     private final WalletRepository walletRepository;
-    private final WalletMapper walletMapper;
 
     @Transactional(readOnly = true)
-    public WalletDto getById(String walletId) {
+    public Wallet getById(String walletId) {
         if (walletId == null) {
             throw new NotFoundException(ID_IS_EMPTY);
         }
-        Wallet wallet = walletRepository.findById(walletId).orElseThrow
+        return walletRepository.getByIdforRead(walletId).orElseThrow
                 (() -> new NotFoundException(String.format(WALLET_NOT_FOUND, walletId)));
-        return walletMapper.toWalletDto(wallet);
     }
 }

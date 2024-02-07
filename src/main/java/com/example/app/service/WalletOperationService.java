@@ -1,6 +1,6 @@
 package com.example.app.service;
 
-import com.example.app.dto.WalletOperationDto;
+import com.example.app.model.WalletOperation;
 
 /**
  * Интерфейс сервиса операций по кошельку
@@ -12,8 +12,7 @@ public interface WalletOperationService {
     /**
      * Метод добавления операции по кошельку в хранилище
      *
-     * @param walletOperationDto {@link WalletOperationDto}
-     * @return {@link WalletOperationDto} с добавленным id и код ответа API 200
+     * @param walletOperation {@link WalletOperation}
      */
-    WalletOperationDto create(WalletOperationDto walletOperationDto);
+    void create(WalletOperation walletOperation);
 }

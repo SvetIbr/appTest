@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 /**
  * Класс операции по кошельку со свойствами <b>id</b>, <b>walletId</b>, <b>operationType</b>,
  * <b>amount</b> и <b>created</b> для работы с базой данных
@@ -53,5 +55,5 @@ public class WalletOperation {
     /**
      * Поле дата и время создания операции
      */
-    private String created;
+    private LocalDateTime created;
 }
